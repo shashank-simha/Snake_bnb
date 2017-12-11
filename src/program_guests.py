@@ -187,5 +187,5 @@ def view_bookings():
             snakes.get(b.guest_snake_id).name,
             b.cage.name,
             datetime.date(b.check_in_date.year, b.check_in_date.month, b.check_in_date.day),
-            (b.check_out_date - b.check_in_date).days
+            (b.check_out_date - b.check_in_date + datetime.timedelta(seconds=1)).days
         ))
