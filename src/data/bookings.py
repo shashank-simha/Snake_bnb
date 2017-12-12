@@ -1,5 +1,5 @@
 import mongoengine
-
+import datetime
 
 class Booking(mongoengine.EmbeddedDocument):
     guest_owner_id = mongoengine.ObjectIdField()
@@ -14,5 +14,5 @@ class Booking(mongoengine.EmbeddedDocument):
 
     @property
     def duration_in_days(self):
-        dt = self.check_out_date - self.check_in_date
+        dt = self.check_out_date - self.check_in_date + datetime.timedelta(seconds=1)
         return dt.days
